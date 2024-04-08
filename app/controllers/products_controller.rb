@@ -8,6 +8,6 @@ class ProductsController < ApplicationController
     end
 
     def new
-
+        @product = Product.new
     end
 end
