@@ -5,6 +5,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
         get products_path
 
         assert_response :success
+        assert_select '.product', 2
     end
 
     test 'render a detailed product page' do
