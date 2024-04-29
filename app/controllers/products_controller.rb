@@ -15,11 +15,16 @@ class ProductsController < ApplicationController
         @product = Product.new(product_params)
 
         if @product.save
-            redirect_to products_path
+            redirect_to products_path, notice:'Your product was created successfully.'
         else
             render :new, status: :unprocessable_entity
         end
     end
+
+    def edit
+        @product = Product.find(params[:id])
+    end
+
 
     private
 
