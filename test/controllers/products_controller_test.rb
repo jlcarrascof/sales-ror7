@@ -67,4 +67,13 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
         assert_equal flash[:notice], 'Your product was updated successfully.'
     end
 
+    test 'does not allow to update a product with invalid field' do
+        patch product_path(products(:ps4)), params: {
+            product: {
+                price: nil
+            }
+        }
+
+        assert_response :unprocessable_entity
+    end
 end
